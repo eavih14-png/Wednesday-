@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Secreta</title>
+    <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Área Secreta</h1>
+
+        <p>Digite a palavra para desbloquear:</p>
+
+        <input type="text" id="senha" placeholder="Digite aqui">
+        <br>
+        <button onclick="verificarSenha()">Desbloquear</button>
+
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        function verificarSenha() {
+            var palavraSecreta = "amarelo";
+            var senhaDigitada = document.getElementById("senha").value;
+
+            if (senhaDigitada === palavraSecreta) {
+                window.location.href = "segredo.html";
+            } else {
+                document.getElementById("mensagem").innerText = "Palavra incorreta!";
+            }
+        }
+    </script>
+
+</body>
+</html>

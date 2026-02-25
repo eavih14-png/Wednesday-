@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segredo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="segredo.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <video controls>
+            <source src="1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+
+        <button onclick="mostrarLetra()">Mostrar Letra</button>
+
+        <div class="letra" id="letraMusica">
+    <pre>
+
+Letra
+
+Eu vejo tua cara 
+e teu querer perverso
+A gente fica bem 
+aqui no chão da sala
+Eu te queria a vida toda, 
+te confesso
+Por mim, a gente 
+nem precisa mais da estrada
+Eu vejo você longe
+e quero você perto
+Fica na minha sombra,
+eu posso ser teu rastro
+Não quero tu na 
+linha, Vivo, morto ou Claro
+Eu quero tu na
+minha boca e a minha 
+boca quer você
+  Quer você
+Diga pra mim
+que é real
+Que eu te prometo 
+meu melhor
+Fala pra mim o
+que eu quero ouvir
+Que tu sentiu o
+que eu senti
+Eu vejo tua cara, 
+o teu querer perverso
+A gente fica 
+bem aqui no chão da sala
+Eu te queria a
+vida toda, te confesso
+Por mim, a gente
+nem precisa mais da estrada
+Eu vejo você longe
+e quero você perto
+Fica na minha sombra,
+eu posso ser teu rastro
+Não quero tu na linha,
+Vivo, morto ou Claro
+Eu quero tu na minha boca
+E a minha boca quer você
+Quer você
+Diga pra mim que é real
+Que eu te prometo
+meu melhor
+Fala pra mim o que eu
+quero ouvir
+Que tu sentiu o que
+eu senti
+Me diga agora, 
+por favor (me diga agora,
+por favor)Que 
+eu vou correndo te abraçar
+(que eu vou correndo
+te abraçar)Te quero tanto,
+é quase dor (te
+quero tanto, é quase dor)É
+com você que
+eu quero estar (é
+com você
+que eu quero estar)
+Se for por mim,
+vai ser assim
+É só você querer
+Pra gente, enfim, se amar
+Pra gente, enfim, se amar
+Pra gente, enfim, se amar
+Pra gente, enfim, se amar
+    </pre>
+</div>
+<button class="proxima" onclick="irParaPagina()">
+    Ir para a próxima página
+</button>
+            
+        </div>
+
+    </div>
+
+<script>
+    function mostrarLetra() {
+        var letra = document.getElementById("letraMusica");
+        var botao = document.querySelector("button");
+
+        if (letra.classList.contains("ativa")) {
+            letra.classList.remove("ativa");
+            botao.innerText = "Mostrar Letra";
+        } else {
+            letra.classList.add("ativa");
+            botao.innerText = "Esconder Letra";
+            chuvaDeCoracoes();
+        }
+    }
+
+    function chuvaDeCoracoes() {
+        for (let i = 0; i < 30; i++) {
+            let coracao = document.createElement("div");
+            coracao.classList.add("coracao");
+            coracao.innerText = "💛";
+
+            coracao.style.left = Math.random() * 100 + "vw";
+            coracao.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+            document.body.appendChild(coracao);
+
+            setTimeout(() => {
+                coracao.remove();
+            }, 3000);
+        }
+    }
+
+    function irParaPagina() {
+        window.location.href = "2.html";
+    }
+</script>
+</body>
+</html>

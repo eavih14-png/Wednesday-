@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma Pergunta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+.imagem-final {
+    margin-top: 30px;
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+}
+
+.imagem-final img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.imagem-final.ativa {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffffff, #fff7cc);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.botoes {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sim {
+    background-color: #FFD60A;
+    color: black;
+}
+
+.nao {
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+/* Emojis */
+.emoji {
+    position: fixed;
+    top: -20px;
+    animation: cair linear forwards;
+    pointer-events: none;
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Você aceita?</h1>
+
+    <div class="botoes">
+        <button class="sim" onclick="respostaSim()">Sim</button>
+        <button class="nao" onclick="respostaNao()">Não</button>
+    </div>
+    <div id="imagemFinal" class="imagem-final">
+    <img src="v.jpg" alt="Imagem especial">
+  
+</div>
+
+<script>
+function criarChuva(lista, quantidade) {
+    for (let i = 0; i < quantidade; i++) {
+        let emoji = document.createElement("div");
+        emoji.classList.add("emoji");
+
+        emoji.innerText = lista[Math.floor(Math.random() * lista.length)];
+
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.fontSize = (Math.random() * 25 + 20) + "px";
+        emoji.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 6000);
+    }
+}
+
+let botaoNao = document.querySelector(".nao");
+
+function moverBotao() {
+    let larguraTela = window.innerWidth - botaoNao.offsetWidth;
+    let alturaTela = window.innerHeight - botaoNao.offsetHeight;
+
+    let novaPosicaoX = Math.random() * larguraTela;
+    let novaPosicaoY = Math.random() * alturaTela;
+
+    botaoNao.style.position = "fixed";
+    botaoNao.style.left = novaPosicaoX + "px";
+    botaoNao.style.top = novaPosicaoY + "px";
+}
+
+/* Foge quando o mouse passa perto */
+botaoNao.addEventListener("mouseover", moverBotao);
+
+/* Foge ao tocar (celular) */
+botaoNao.addEventListener("touchstart", moverBotao);
+
+function respostaSim() {
+    criarChuva(["🌷","🌹","💐","💓","❤️"], 120);
+
+    let imagem = document.getElementById("imagemFinal");
+    imagem.classList.add("ativa");
+}
+</script>
+
+</body>
+
+</html>

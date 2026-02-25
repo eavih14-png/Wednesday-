@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sim {
+    background-color: #FFD60A;
+    color: black;
+}
+
+.nao {
+    background-color: black;
+    color: white;
+}
+
+.sim:hover {
+    transform: scale(1.05);
+}
+
+.nao:hover {
+    transform: scale(1.05);
+}
+
+/* Emojis */
+.emoji {
+    position: fixed;
+    top: -20px;
+    font-size: 22px;
+    animation: cair linear forwards;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+    .container {
+    position: relative;
+}
+
+.botoes {
+    position: relative;
+    z-index: 10;
+}
+
+.imagem-final {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.imagem-final img {
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+.imagem-final.ativa {
+    display: flex;
+}
+
+.nao {
+    position: fixed;
+    z-index: 9999;
+}
